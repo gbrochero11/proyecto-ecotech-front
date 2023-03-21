@@ -1,0 +1,76 @@
+<br>
+<br>
+<div style="text-align: center;">
+  <h1>MIS SOLICITUDES</h1>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card shadow my-5 text-center ">
+      <div class="card-body">
+        <div class="table-responsive">
+
+          <div class="form-group row">
+            <div class="col-sm-6">
+              <input class="form-control" type="text" [(ngModel)]="searchText" placeholder="Buscar solicitud">
+            </div>
+          </div>
+
+          <table class="table table-stripped  align-middle"
+            *ngIf="(data | filerthoreca: searchText).length > 0; else noResults">
+            <thead class="title">
+              <tr>
+                <th *ngFor="let e of columnas">{{e}}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let dataList of data | filerthoreca: searchText; let i = index">
+                <td>{{dataList.id}}</td>
+                <td>{{dataList.direccion}}</td>
+                <td>{{dataList.fecha_solicitud}}</td>
+                <td>
+                  <button type="button"  (click)="dataLogBook(dataList.id)">
+                    <img class="img-fluid" src="./assets/images/iconos-visualizar.png" alt="Icon" width="20px">
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <ng-template #noResults>
+            <p>No se encontraron resultados.</p>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div bsModal #childModal="bs-modal" class="modal fade" tabindex="-1" role="dialog"
+    aria-labelledby="dialog-child-name" >
+    <div class="modal-dialog modal-lg" data-backdrop="false">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">BITACORA</h4>
+            <button type="button" class="close pull-right btn-close" aria-label="Close" (click)="hideChildModal()">
+              <span aria-hidden="true" class="visually-hidden">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <table class="table table-stripped  align-middle" *ngIf="listaBitacora; else noResults">
+              <thead class="title">
+                <tr>
+                  <th *ngFor="let e of encabezadoTabla">{{e}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let bitacora of listaBitacora; let i = index">
+                  <td>{{bitacora.fecha_registro}}</td>
+                  <td>{{bitacora.descripcion}}</td>
+                  <td>{{bitacora.nombre_servicio}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,48 @@
+<br>
+<br>
+<div style="text-align: center;">
+  <h1>ORDEN DE SERVICIO</h1>
+</div>
+<div>
+  <form [formGroup]="solicitudForm" (ngSubmit)="crearSolicitud()">
+    <div class="row">
+      <div class="col-sm-12">
+        <input validar type="text" id="direccion" name="direccion" placeholder="Dirección" class="form-control"
+          formControlName="direccion">
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-sm-12">
+        <input validar type="text" id="toneladas" name="peso" placeholder="Peso - Toneladas" class="form-control"
+          formControlName="toneladas">
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="form-group col-sm-12">
+        <label for="inputFechaServicio">Fecha Servicio</label>
+        <input type="date" placeholder="Fecha Servicio" class="form-control" bsDatepicker formControlName="fecha_solicitud">
+      </div>
+    </div>
+    
+    <br>
+    <div class="row">
+      <div class="col-sm-12">
+        <input validar type="text" id="ciudad_origen" name="ciudad" placeholder="Ciudad" class="form-control"
+          formControlName="ciudad_origen">
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-sm-12">
+        <input validar type="text" id="telefono" name="telefono" placeholder="Telefono" class="form-control"
+          formControlName="telefono">
+      </div>
+    </div>
+    <br><br>
+    <div style="text-align: center;">
+      <button type="submit" class="btn color-basic-secondary">Crear Solicitud</button>
+    </div>
+  </form>
+</div>

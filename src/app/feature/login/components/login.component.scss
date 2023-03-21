@@ -1,0 +1,28 @@
+
+  .login {
+    min-height: 100vh;
+  }
+  
+  .bg-image {
+    background-image: url('https://mecaluxar.cdnwm.com/documents/20197/7663870/M38P06+tecnicas-almacenamiento/6d9ee756-7ff6-5d45-78f9-6fbf4587343f?t=1647522203000&e=jpg');
+    background-size: cover;
+    background-position: center;
+    -webkit-box-shadow: 10px 10px 24px -4px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 24px -4px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 24px -4px rgba(0,0,0,0.75);
+    background-color: 606060
+  }
+  
+  .login-heading {
+    font-weight: 300;
+  }
+  
+  .btn-login {
+    font-size: 0.9rem;
+    letter-spacing: 0.05rem;
+    padding: 0.75rem 1rem;
+    background-color: #ED550A;
+    color: white;
+  }
+
+  

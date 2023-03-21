@@ -1,0 +1,49 @@
+<br>
+<br>
+<div style="text-align: center;">
+  <h1>OFERTAS DISPONIBLES</h1>
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card shadow my-5 text-center ">
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-stripped  align-middle" *ngIf="(data).length > 0; else noResults">
+            <thead class="title">
+              <tr>
+                <th *ngFor="let e of columnas">{{e}}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let dataList of data; let i = index">
+                <td>{{dataList.id}}</td>
+                <td>{{dataList.nombre_horeca}}</td>
+                <td>{{dataList.toneladas}}</td>
+                <td>{{dataList.ciudad_origen}}</td>
+                <td>{{dataList.telefono}}</td>
+                <td>{{dataList.fecha_solicitud}}</td>
+
+                <td>
+                  <button mat-raised-button focusable="false" (click)="aceptarSolicitud(dataList)">
+                    <img class="img-fluid" src="./assets/images/iconos-aceptar.png" alt="Icon" width="20px">
+                  </button>
+                </td>
+
+                <td>
+                  <button mat-raised-button focusable="false" (click)="rechazarSolicitud(dataList.id)">
+                    <img class="img-fluid" src="./assets/images/iconos-rechazar.png" alt="Icon" width="20px">
+                  </button>
+                </td>
+
+              </tr>
+            </tbody>
+          </table>
+          <ng-template #noResults>
+            <p>No se encontraron resultados.</p>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

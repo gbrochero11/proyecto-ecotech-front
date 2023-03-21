@@ -1,0 +1,34 @@
+<br>
+<br>
+<div style="text-align: center;">
+    <h1>BITACORA</h1>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+      <div class="card shadow my-5 text-center ">
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-stripped  align-middle"  
+                *ngIf="listaBitacora; else noResults">
+              <thead class="title">
+                <tr>
+                  <th *ngFor="let e of encabezadoTabla">{{e}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let bitacora of listaBitacora; let i = index">
+                  <td>{{bitacora.id}}</td>
+                  <td>{{bitacora.fecha_registro}}</td>
+                  <td>{{bitacora.id_solicitud}}</td>
+                  <td>{{bitacora.descripcion}}</td>
+                </tr>
+              </tbody>
+            </table>
+            <ng-template #noResults>
+              <p>No se encontraron resultados.</p>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

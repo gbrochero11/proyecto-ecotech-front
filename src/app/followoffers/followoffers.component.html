@@ -1,0 +1,86 @@
+<br>
+<br>
+<div style="text-align: center;">
+    <h1>SEGUIMIENTO DE OFERTAS ACEPTADAS</h1>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+      <div class="card shadow my-5 text-center ">
+        <div class="card-body">
+          <div class="table-responsive">
+  
+            <div class="form-group row">
+              <div class="col-sm-6">
+                <input class="form-control" type="text" [(ngModel)]="searchText" placeholder="Buscar solicitud">
+              </div>
+            </div>
+  
+            <table class="table table-stripped  align-middle"
+              *ngIf="(data | filertempresas: searchText).length > 0; else noResults">
+              <thead class="title">
+                <tr>
+                  <th *ngFor="let e of columnas">{{e}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let dataList of data | filertempresas: searchText; let i = index">
+                  <td>{{dataList.id}}</td>
+                  <td>{{dataList.direccion}}</td>
+                  <td>{{dataList.fecha_solicitud}}</td>
+                  <td>
+                    <button mat-raised-button focusable="false" data-bs-toggle="modal" data-bs-target="#myModal"
+                      (click)="dataLogBook(dataList.id)">
+                      <img class="img-fluid" src="./assets/images/iconos-visualizar.png" alt="Icon" width="20px">
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <ng-template #noResults>
+              <p>No se encontraron resultados.</p>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- The Modal -->
+    <div class="modal" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+  
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">BITACORA</h4>
+          </div>
+  
+          <!-- Modal body -->
+          <div class="modal-body">
+              <table class="table table-stripped  align-middle" *ngIf="listaBitacora; else noResults">
+                <thead class="title">
+                  <tr>
+                    <th *ngFor="let e of encabezadoTabla">{{e}}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let bitacora of listaBitacora; let i = index">
+                    <td>{{bitacora.id}}</td>
+                    <td>{{bitacora.fecha_registro}}</td>
+                    <td>{{bitacora.descripcion}}</td>
+                    <td>{{bitacora.nombre_servicio}}</td>
+                  </tr>
+                </tbody>
+              </table>
+          </div>
+  
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-login-modal" data-dismiss="modal">Cerrar</button>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  
+  </div>

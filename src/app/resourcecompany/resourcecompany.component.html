@@ -1,0 +1,47 @@
+<br>
+<br>
+<div style="text-align: center;">
+  <h1>REGISTRO DE RECURSO</h1>
+</div>
+<div>
+  <form [formGroup]="solicitudForm" (ngSubmit)="crearRecurso()">
+    <div class="row">
+      <div class="col-sm-12">
+        <input validar type="text" id="documento" name="documento" placeholder="Documento recurso" class="form-control"
+          formControlName="documento">
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-sm-12">
+        <input validar type="text" id="nombres" name="nombres" placeholder="Nombres recurso" class="form-control"
+          formControlName="nombres">
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-sm-12">
+        <input validar type="text" id="apellidos" name="apellidos" placeholder="Apellidos" class="form-control"
+          formControlName="apellidos">
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-sm-12">
+        <input validar type="text" id="usuarioapp" name="usuarioapp" placeholder="Usuario app" class="form-control"
+          formControlName="usuarioapp">
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-sm-12">
+        <input validar type="password" id="contrasenaapp" name="contrasenaapp" placeholder="Contraseña app" class="form-control"
+          formControlName="contrasenaapp">
+      </div>
+    </div>
+    <br><br>
+    <div style="text-align: center;">
+      <button type="submit" class="btn color-basic-secondary">Crear Recurso</button>
+    </div>
+  </form>
+</div>

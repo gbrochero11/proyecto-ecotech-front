@@ -1,0 +1,97 @@
+
+<div class="container col-sm-12 col-md-10">
+  <div class="card-header" style="text-align: center; font-weight: bold;">
+    <h1 class="title">{{titulo}}</h1>
+</div>
+<form >
+    <div class="row">
+      <div class="form-group col-md-6">
+        <label for="inputTipoMoviemiento">Movimiento</label>
+        <select id="inputTipoMoviemiento" class="form-control" formControlName="id_movimiento">
+          <option selected>Movimientos</option>
+          <option value=1>Salida</option>
+          <option value=2>Entrada</option>
+          <option value=3>Reintegro</option>
+        </select>
+      </div>
+      <br><br><br><br>
+      <div class="form-group col-sm-6">
+      <label for="inputEstado">Estado</label>
+        <select id="inputEstado" class="form-control" formControlName="id_estado">
+          <option selected>Estados</option>
+          <option value=1>Bueno</option>
+          <option value=2>Regular</option>
+          <option value=3>Malo</option>
+        </select>
+      </div>
+      <br><br><br><br>
+      <div>
+        <label for="inputDescripcion">Descripción</label>
+        <input type="text" class="form-control" id="inputDescripcion" placeholder="Descripcion" formControlName="descripcion">
+      </div>
+      <br><br><br><br>
+      <div class="form-group col-sm-6">
+        <label for="inputPertenece">Material Perteneciente</label>
+          <select id="inputPertenece" class="form-control" formControlName="pertenece" (change)="obtenerFiltrarMateriales($event.target.value)">
+            <option value="default">Materiales...</option>
+            <option *ngFor="let material of pertenece"  [value]="material.pertenece">
+              {{material.pertenece}}
+            </option>
+          </select>
+      </div>
+      <br><br><br><br>
+      <div class="form-group col-sm-6">
+        <label for="inputSolicitado">Entidad Solicitante</label>
+        <input type="text" class="form-control" id="inputSolicitado" placeholder="Solicitado" formControlName="solicitado_por">
+      </div>
+      <br><br><br><br>
+      <div class="form-group col-sm-6">
+        <label for="inputCantidad">Cantidad</label>
+        <input type="number" class="form-control" id="inputCantidad" placeholder="Cantidad" formControlName="cantidad">
+      </div>
+      <br><br><br><br>
+      <div class="form-group col-md-6">
+        <label for="inputMateriales">Materiales</label>
+        <select #cricket (change)="update($event)" id="inputMateriales"   class="form-control" formControlName="serial" (change)="metodoCargarUnidades($event)">
+          <option value="default">Materiales...</option>
+          <option *ngFor="let materiales of materialesLista"  [value]="materiales.codigo">
+            {{materiales.codigo}} {{materiales.material}} - {{materiales.unidad}}
+          </option>
+        </select>
+      </div>
+      <br><br><br><br>
+      
+      <div class="form-group col-sm-12">
+        <label for="inputObservacion">Observaciones</label>
+        <input type="text" class="form-control" id="inputObservacion" placeholder="Observaciones" formControlName="observaciones">
+      </div><br><br><br><br>
+      <div class="form-group col-md-6">
+        <label for="inputZona">Zona</label>
+        <select #cricket (change)="update($event)" id="inputZona" class="form-control" formControlName="zona"  (change)="metodoCargarCiudades($event.target.value)">
+          <option value="default">Zonas...</option>
+          <option *ngFor="let zona of zonasLista" [value]="zona.departamento">
+            {{zona.departamento}}
+          </option>
+        </select>
+      </div>
+      <br><br><br><br>
+      <div class="form-group col-md-6">
+        <label for="inputCiudades">Ciudades</label>
+        <select #cricket (change)="update($event)" id="inputCiudades" class="form-control" formControlName="id_ciudad" >
+          <option value="default">Ciudades...</option>
+          <option *ngFor="let ciudades of ciudadesLista" [value]="ciudades.id">
+            {{ciudades.localidad}}
+          </option>
+        </select>
+      </div>
+      
+      
+    </div>
+   
+    <br>
+    <div style="text-align: center;">
+      <button type="submit"  class="btn btn-login">Registrar Novedad</button>
+    </div>
+  </form>
+</div>
+

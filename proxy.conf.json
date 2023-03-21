@@ -1,0 +1,6 @@
+{
+  "/api": {
+    "target": "https://ecotechcol.herokuapp.com",
+    "logLevel": "debug"
+  }
+}

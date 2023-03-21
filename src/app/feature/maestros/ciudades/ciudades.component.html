@@ -1,0 +1,38 @@
+<div class="row">
+    <div class="col-sm-12">
+      <div class="card shadow my-5 text-center ">
+        <div class="card-header ">
+          <h1 class="title">{{titulo}}</h1>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    <input class="form-control" type="text" [(ngModel)]="searchText" placeholder="Buscar ciudad">
+                </div>
+            </div>
+            
+            <table class="table table-stripped  align-middle"  
+                *ngIf="(listaCiudades | filter: searchText).length > 0; else noResults">
+              <thead class="title">
+                <tr>
+                  <th *ngFor="let e of encabezadoTabla">{{e}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let ciudad of listaCiudades | filter: searchText; let i = index">
+                  <td>{{ciudad.id}}</td>
+                  <td>{{ciudad.localidad}}</td>
+                  <td>{{ciudad.departamento}}</td>
+                </tr>
+              </tbody>
+            </table>
+            <ng-template #noResults>
+              <p>No se encontraron resultados.</p>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

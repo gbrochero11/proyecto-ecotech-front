@@ -1,0 +1,25 @@
+
+.example-button-row button,
+.example-button-row a {
+  margin-right: 8px;
+}
+
+.flex-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.flex-item {
+  padding: 1px;
+  width: 200px;
+  height: 150px;
+  text-align: center;
+  border-color: white;
+  background-color: white;
+}
+
+.center {
+  text-align: center;
+}
+

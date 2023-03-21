@@ -1,0 +1,48 @@
+<br>
+<br>
+<div style="text-align: center;">
+    <h1>ASIGNACIÓN DE RECURSO</h1>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+      <div class="card shadow my-5 text-center ">
+        <div class="card-body">
+          <div class="table-responsive">
+  
+            <div class="form-group row">
+              <div class="col-sm-6">
+                <input class="form-control" type="text" [(ngModel)]="searchText" placeholder="Buscar solicitud">
+              </div>
+            </div>
+  
+            <table class="table table-stripped  align-middle"
+              *ngIf="(data | filertempresas: searchText).length > 0; else noResults">
+              <thead class="title">
+                <tr>
+                  <th *ngFor="let e of columnas">{{e}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let dataList of data | filertempresas: searchText; let i = index">
+                  <td>{{dataList.id}}</td>
+                  <td>{{dataList.direccion}}</td>
+                  <td>{{dataList.fecha_solicitud}}</td>
+                  <td>
+                    <select (change)="update($event, dataList.id)" style="height: 40px; width: 200px;">
+                      <option value="default">Recursos</option>
+                      <option *ngFor="let option of resourceCompany" 
+                      [value]="option.id">{{option.apellidos}} </option>
+                    </select>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <ng-template #noResults>
+              <p>No se encontraron resultados.</p>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
