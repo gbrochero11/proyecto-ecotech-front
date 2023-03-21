@@ -17,7 +17,7 @@ export class AssigResourceOfOferrsComponent implements OnInit {
   public columnas: string[] = ['Codigo', 'Dirección', 'Fecha Solicitud', 'Asignar Recurso'];
 
   searchText: string;
-  selectIdTask= Number;
+  selectIdTask: number;
   selectedResource = "Recurso"
   data: FollowOffers[] =[];
   resourceCompany: UserAppDTO[] =[];
