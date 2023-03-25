@@ -42,7 +42,9 @@ export class AssigResourceOfOferrsComponent implements OnInit {
     const datos=JSON.parse(this.loginService.obtenerDatos());
     this.followService.consultarNotAssigned(datos.data.documento).subscribe(listaRequests=>{
       this.data = listaRequests['data'];
-    })
+    }, () => {
+      this.toastService.error("Ha ocurrido un error al listar las ofertas, por favor comuniquese con el administrador.", 'ERROR');
+    });
   }
 
   private listarResource(){
