@@ -40,14 +40,12 @@ export class FollowoffersComponent   implements OnInit{
   private listarOffersAccept(){
     const datos=JSON.parse(this.loginService.obtenerDatos());
     this.followService.consultar(datos.data.documento).subscribe(listaRequests=>{
-      debugger
       this.data = listaRequests['data'];
       console.log(this.data);
     })
   }
 
   public dataLogBook(id: number){
-    debugger
     this.logBookService.consultar(id).subscribe(bitacora=>{
       this.listaBitacora = bitacora['data'];
       console.log(this.listaBitacora);

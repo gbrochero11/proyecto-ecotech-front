@@ -5,6 +5,8 @@ import { FollowOffers } from '../followoffers/service/model/followoffers';
 import { AssignedResource } from '../resourcecompany/service/model/AssignedResource';
 import { UserAppDTO } from '../resourcecompany/service/model/UserAppDTO';
 import { ResourcecompanyService } from '../resourcecompany/service/resourcecompany.service';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-assig-resource-of-oferrs',
@@ -30,11 +32,10 @@ export class AssigResourceOfOferrsComponent implements OnInit {
 
   
 
-  constructor(protected followService: FollowoffersService,protected resourceCompanyService: ResourcecompanyService ,protected loginService: LoginService) { }
+  constructor(protected followService: FollowoffersService,protected resourceCompanyService: ResourcecompanyService ,protected loginService: LoginService, private toastService: ToastrService) { }
 
   ngOnInit(): void {
-    this.listarNotOffersAccept();
-    this.listarResource();
+    this.loadData();
   }
 
   private listarNotOffersAccept(){
@@ -48,26 +49,26 @@ export class AssigResourceOfOferrsComponent implements OnInit {
     const datos=JSON.parse(this.loginService.obtenerDatos());
     
     this.resourceCompanyService.obtenerResource(datos.data.id).subscribe(listaRequests=>{
-      debugger
       this.resourceCompany = listaRequests['data'];
-    })
+    }, () => {
+      this.toastService.error("Ha ocurrido un error al listar los recurso, por favor comuniquese con el administrador.", 'ERROR');
+    });
   }
 
   onSelect() {
     const assigned = new AssignedResource(this.selectIdTask, parseInt(this.selectedResource, 10)); 
-    debugger
     this.resourceCompanyService.assignedResource(assigned).subscribe(listaRequests=>{
-      debugger
       this.resourceCompany = listaRequests['data'];
-    })
-    this.refresh();
-    console.log(this.selectedResource); 
+      this.toastService.success("Recurso asignado exitosamente.", "SUCCESS");
+      this.loadData();
+    }, () => {
+      this.toastService.error("Ha ocurrido un error al asignar recurso, por favor comuniquese con el administrador.", 'ERROR');
+    });
   }
 
-  refresh(): void {
-    debugger
-    window.location.reload();
-    this.ngOnInit();
+  loadData(): void{
+    this.listarNotOffersAccept();
+    this.listarResource();
   }
 
 }

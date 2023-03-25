@@ -12,7 +12,6 @@ export class Oferrs {
 
     constructor(id: number, codigo_estado: number, toneladas: number, documento_usuario: string
         , direccion: string, fecha_solicitud: string, ciudad_origen: string, nombre_horeca: string, telefono: number, documento_empresa: string) {
-        debugger
         this.id = id;
         this.codigo_estado = codigo_estado;
         this.toneladas = toneladas;

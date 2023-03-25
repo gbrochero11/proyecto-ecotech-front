@@ -43,7 +43,6 @@ export class RequestComponent implements OnInit{
   }
 
   public dataLogBook(id: number){
-    debugger
     this.logBookService.consultar(id).subscribe(bitacora=>{
       this.listaBitacora = bitacora['data'];
       console.log(this.listaBitacora);

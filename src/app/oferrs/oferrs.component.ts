@@ -2,6 +2,8 @@ import { Component} from '@angular/core';
 import { LoginService } from '../feature/login/shared/service/service/login.service';
 import { Oferrs } from './service/model/Oferrs';
 import { OferrsService } from './service/oferrs.service';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-oferrs',
@@ -18,7 +20,7 @@ export class OferrsComponent {
     this.selected = e.target.value
   }
 
-  constructor(protected oferrsService: OferrsService, protected loginService: LoginService) { }
+  constructor(protected oferrsService: OferrsService, protected loginService: LoginService, private toastService: ToastrService) { }
 
   ngOnInit(): void {
     this.listarOferrs();
@@ -30,9 +32,12 @@ export class OferrsComponent {
       data.documento_empresa = datos.data.documento
       data.codigo_estado = 2
       this.oferrsService.guardarNovedad(data).subscribe((numero)=> {
-        console.log(numero)
+      console.log(numero)
+      this.listarOferrs();
+      this.toastService.success("Solicitud aceptada exitosamente.", "SUCCESS");
+      }, () => {
+        this.toastService.error("Ha ocurrido un error aceptando la solicitud, por favor comunicarse con el administrador.", "ERROR");
       });
-      this.refresh();
     }
   }
 
@@ -51,10 +56,6 @@ export class OferrsComponent {
       this.data = listaOferrs['data'];
       console.log(this.data);
     })
-  }
-
-  refresh(): void {
-    window.location.reload();
   }
 }
 
