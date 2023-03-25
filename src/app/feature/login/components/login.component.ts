@@ -111,4 +111,9 @@ export class LoginComponent implements OnInit {
   changeToogle(): void {
     this.isToogleMenu = !this.isToogleMenu;
   }
+
+  scrollToElement($element): void {
+    console.log($element);
+    $element.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+  }
 }
