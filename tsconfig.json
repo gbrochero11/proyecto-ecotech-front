@@ -41,6 +41,9 @@
       ],
       "@bodyhoreca/*": [
         "src/app/feature/bodyhoreca/*"
+      ],
+      "@auth/*": [
+        "src/app/modules/auth/*"
       ]
     }
   },
