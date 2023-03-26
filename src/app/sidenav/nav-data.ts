@@ -13,10 +13,5 @@ export const navbarData = [
         routeLink: 'requesthoreca',
         icon: 'fal fa-tags',
         label: 'Mis Solicitudes'
-    },
-    {
-        routeLink: 'login',
-        icon: 'fal fa-window-close',
-        label: 'Cerrar sesion'
     }
 ];
