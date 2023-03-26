@@ -19,10 +19,10 @@ export class AuthInterceptor implements HttpInterceptor {
       catchError(error => {
         switch (error.status) {
           case UNAUTHORIZED:
-            this.router.navigate(['/login']);
+            this.router.navigate(['auth/login']);
             break;
           case FORBIDDEN:
-            this.router.navigate(['/home']);
+            this.router.navigate(['']);
             break;
           default:
             return throwError(error);

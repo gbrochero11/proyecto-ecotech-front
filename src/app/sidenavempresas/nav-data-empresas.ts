@@ -18,11 +18,5 @@ export const navbarDataEmpresas = [
         routeLink: 'resourcecompany',
         icon: 'fal fa-walking',
         label: 'Registrar recurso'
-    },
-    {
-        routeLink: 'login',
-        icon: 'fal fa-window-close',
-        label: 'Cerrar sesion'
-    }
-    
+    },   
 ];

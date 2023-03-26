@@ -22,6 +22,8 @@ export class LoginComponent implements OnInit {
   @ViewChild('childModal', { static: false }) childModal?: ModalDirective;
   @ViewChild('childModalRegister', { static: false }) childModalRegister?: ModalDirective;
 
+  public isToogleMenu: boolean;
+
 
   
   constructor(protected loginService: LoginService, protected router: Router, protected modalService: BsModalService) {
@@ -59,8 +61,7 @@ export class LoginComponent implements OnInit {
 
   crearUsuario() {
     
-    this.loginService.guardar(this.registerUserForm.value).subscribe(usuarioServicio=> {
-      console.log("Response Data: ", usuarioServicio)
+    this.loginService.guardar(this.registerUserForm.value).subscribe(()=> {
       this.hideChildModalRegister()
     })
   }
@@ -78,8 +79,6 @@ export class LoginComponent implements OnInit {
     this.loginService.loginUsuario(usuario,clave).subscribe(usuarioServicio=> {
       this.usuario=usuarioServicio;
       this.loginService.guardarDatos(this.usuario)
-      console.log("Response Data: ", this.loginService.obtenerDatos())
-      debugger
       const url = this.usuario.data.tipousuario == "1" ? 'bodyhoreca' : 'bodyempresa'
       this.router.navigate([url])
     })
@@ -106,4 +105,21 @@ export class LoginComponent implements OnInit {
   hideChildModalRegister(): void {
     this.childModalRegister?.hide();
   }
+
+  changeToogle(): void {
+    this.isToogleMenu = !this.isToogleMenu;
+  }
+
+  scrollToElement($element): void {
+    $element.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+  }
+
+  redirectToLogin():void {
+    this.router.navigateByUrl('auth/login')
+  }
+
+  redirectToRegister():void {
+    this.router.navigateByUrl('auth/register')
+  }
+  
 }

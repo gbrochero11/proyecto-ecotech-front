@@ -1,0 +1,247 @@
+<div class="header py-3">
+  <div class="container">
+    <a
+      href="index.html"
+      class="navbar-brand d-flex align-items-center px-4 px-lg-5"
+    >
+      <img
+        class="img-fluid"
+        src="./assets/images/iconos-techno-navbar.png"
+        alt="Icon"
+      />
+    </a>
+  </div>
+</div>
+
+<div class="container text-center w-75 mt-4 mb-4">
+  <h1>Crear Cuenta</h1>
+
+  <form class="w-75 mx-auto" [formGroup]="form" (ngSubmit)="submit()">
+    <div class="row">
+      <mat-form-field>
+        <mat-label>Nombre</mat-label>
+        <input
+          type="text"
+          matInput
+          placeholder="Nombre"
+          formControlName="nombre"
+        />
+        <mat-error *ngIf="form.get('nombre').hasError('required')">
+          Nombre de usuario es <strong>requerido</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <mat-form-field appearance="fill" class="col-md-3 col-sm-12">
+        <mat-label>Tipo de documento</mat-label>
+        <mat-select formControlName="tipo_documento">
+          <mat-option
+            *ngFor="let typeDocument of typeDocuments"
+            [value]="typeDocument.id"
+          >
+            {{ typeDocument.name }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('tipo_documento').hasError('required')">
+          Tipo de documento es <strong>requerido</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="col-md-4 col-sm-12">
+        <mat-label>N&uacute;mero de documento</mat-label>
+        <input
+          type="text"
+          matInput
+          placeholder="N&uacute;mero de documento"
+          formControlName="documento"
+        />
+        <mat-error *ngIf="form.get('documento').hasError('required')">
+          N&uacute;mero de documento es <strong>requerido</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="col-md-5 col-sm-12">
+        <mat-label>Ciudad</mat-label>
+        <input
+          type="text"
+          matInput
+          placeholder="Ciudad"
+          formControlName="ciudad"
+        />
+        <mat-error *ngIf="form.get('ciudad').hasError('required')">
+          La ciudad es <strong>requerida</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <mat-form-field class="col-md-6 col-sm-12">
+        <mat-label>Raz&oacute;n social</mat-label>
+        <input
+          type="text"
+          matInput
+          placeholder="Raz&oacute;n social"
+          formControlName="razon_social"
+        />
+        <mat-error *ngIf="form.get('razon_social').hasError('required')">
+          Raz&oacute;n social es <strong>requerida</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="col-md-6 col-sm-12">
+        <mat-label>C&oacute;digo Rut</mat-label>
+        <input
+          type="number"
+          matInput
+          placeholder="C&oacute;digo Rut"
+          formControlName="codigoRut"
+        />
+        <mat-error *ngIf="form.get('codigoRut').hasError('required')">
+          C&oacute;digo Rut es <strong>requerido</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <mat-form-field>
+        <mat-label>Representante</mat-label>
+        <input
+          type="text"
+          matInput
+          placeholder="Representante"
+          formControlName="representante"
+        />
+        <mat-error *ngIf="form.get('representante').hasError('required')">
+          Representantes es <strong>requerido</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <mat-form-field>
+        <mat-label>Correo</mat-label>
+        <input
+          type="email"
+          matInput
+          placeholder="Correo"
+          formControlName="correoElectronico"
+        />
+        <mat-error *ngIf="form.get('correoElectronico').hasError('required')">
+          Correo es <strong>requerido</strong>
+        </mat-error>
+        <mat-error *ngIf="form.get('correoElectronico').hasError('email')">
+          Correo no es <strong>v&aacute;lido</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <mat-form-field class="col-md-6 col-sm-12">
+        <mat-label>Nombre de usuario</mat-label>
+        <input
+          type="text"
+          matInput
+          placeholder="Nombre de usuario"
+          formControlName="usuarioApp"
+        />
+        <mat-error *ngIf="form.get('usuarioApp').hasError('required')">
+          Nombre de usuario es <strong>requerido</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="col-md-6 col-sm-12">
+        <mat-label>Tipo de cuenta</mat-label>
+        <mat-select formControlName="tipoUsuario">
+          <mat-option
+            *ngFor="let typeAccount of typeAccounts"
+            [value]="typeAccount.id"
+          >
+            {{ typeAccount.name }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('tipoUsuario').hasError('required')">
+          Tipo de cuenta es <strong>requerida</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <mat-form-field class="col-md-6 col-sm-12">
+        <mat-label>Contraseña</mat-label>
+        <input
+          type="password"
+          matInput
+          placeholder="Contraseña"
+          formControlName="passwordApp"
+        />
+        <mat-error *ngIf="form.get('passwordApp').hasError('required')">
+          Contraseña es <strong>requerida</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="col-md-6 col-sm-12">
+        <mat-label>Confirmar contraseña</mat-label>
+        <input
+          type="password"
+          matInput
+          placeholder="Confirmar contraseña"
+          formControlName="password_confirm"
+        />
+        <mat-error *ngIf="form.get('password_confirm').hasError('required')">
+          Confirmar contraseña es <strong>requerida</strong>
+        </mat-error>
+        <mat-error *ngIf="form.get('password_confirm').hasError('notEquals')">
+          Las contraseñas no <strong>coinciden</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <mat-form-field class="col-md-6 col-sm-12">
+        <mat-label>T&eacute;lefono</mat-label>
+        <input
+          mask="(000) 000-00-00"
+          prefix="+57"
+          type="text"
+          matInput
+          placeholder="T&eacute;lefono"
+          formControlName="telefono"
+        />
+        <mat-error *ngIf="form.get('telefono').hasError('required')">
+          T&eacute;lefono es <strong>requerido</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="col-md-6 col-sm-12">
+        <mat-label>Direcci&oacute;n</mat-label>
+        <input
+          type="text"
+          matInput
+          placeholder="Direcci&oacute;n"
+          formControlName="direccion"
+        />
+        <mat-error *ngIf="form.get('direccion').hasError('required')">
+          La Direcci&oacute;n es <strong>requerida</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="mt-2 text-center">
+      <button
+        type="button"
+        class="btn btn-secondary btn-lg col-sm-12 col-md-4 mx-1"
+        [routerLink]="'auth/login'"
+      >
+        Regresar
+      </button>
+      <button
+        type="submit"
+        class="btn btn-register btn-lg col-sm-12 col-md-4 mx-1"
+        [disabled]="form.invalid"
+      >
+        Crear una cuenta
+      </button>
+    </div>
+  </form>
+</div>

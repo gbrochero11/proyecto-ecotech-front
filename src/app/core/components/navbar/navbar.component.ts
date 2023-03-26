@@ -46,11 +46,10 @@ export class NavbarComponent implements OnInit {
   }
 
   obtenerRol(): number{
-    const datos=JSON.parse(this.loginService.obtenerDatos());
+    const datos=this.loginService.obtenerDatos();
     if(datos==null){
       return 1;
     }
-    console.log(datos.tiporol)
 
     return datos.tiporol == 1 ? 3 : 3
   }

@@ -28,7 +28,6 @@ export class MaterialesService {
   }
 
   public actualizarCrearMaterial(materiales: Materiales) {
-    console.log(JSON.stringify(materiales))
     return this.http.doPost<Materiales, boolean>(`${environment.endpoint}/materials/register-materials`, materiales,
                                                 this.http.optsName('crear/actualizar material'));
   }

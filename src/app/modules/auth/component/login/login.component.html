@@ -1,0 +1,43 @@
+<div class="container text-center w-50 h-75 p-3 mb-5 mt-5">
+  <div class="mx-auto border shadow p-3 mb-5 bg-white w-75 h-100">
+    <a>
+      <img
+        class="img-fluid"
+        src="./assets/images/iconos-techno-login.png"
+        alt="Icon"
+      />
+    </a>
+
+    <form class="form mt-5 mx-auto" [formGroup]="form" (submit)="login()">
+      <mat-form-field class="full-width">
+        <mat-label>Nombre de Usuario</mat-label>
+        <input type="text" formControlName="username" matInput />
+        <mat-error *ngIf="form.get('username').hasError('required')">
+          Nombre de usuario es <strong>requerido</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Contraseña</mat-label>
+        <input type="password" formControlName="password" matInput />
+        <mat-error *ngIf="form.get('password').hasError('required')">
+          Contraseña es <strong>requerida</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <button
+        type="submit"
+        class="btn btn-login btn-lg"
+        [disabled]="form.invalid"
+      >
+        INICIAR SESION
+      </button>
+    </form>
+
+    <div class="mt-2">
+      <p (click)="redirectoToRegister()" class="link">Crear una cuenta</p>
+
+      <p>Olvide mi contraseña</p>
+    </div>
+  </div>
+</div>

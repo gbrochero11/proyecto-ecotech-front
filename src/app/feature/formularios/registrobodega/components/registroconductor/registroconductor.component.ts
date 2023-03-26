@@ -48,8 +48,7 @@ export class RegistroconductorComponent implements OnInit {
   }
 
   crear() {
-    this.vehiculoService.guardarNovedad(this.registroVehiculoForm.value).subscribe((numero)=> {
-      console.log(numero)
+    this.vehiculoService.guardarNovedad(this.registroVehiculoForm.value).subscribe(()=> {
     });
     this.refresh();
   }
@@ -79,14 +78,12 @@ export class RegistroconductorComponent implements OnInit {
   obtenerDepartamentos(){
     this.ciudadesServices.consultarDepartament().subscribe(listaDatosDeparment=>{
         this.zonasLista=listaDatosDeparment;
-        console.log(this.zonasLista);
     })
   }
 
   metodoCargarCiudades(departament: string) {
     this.ciudadesServices.consultarCiudades(departament).subscribe(listaDatosCiudad=>{
       this.ciudadesLista=listaDatosCiudad;
-      console.log(this.ciudadesLista)
     })
   };
 
@@ -97,7 +94,6 @@ export class RegistroconductorComponent implements OnInit {
   obtenerFiltrarMateriales(suministro: string){
     this.materialesServices.consultarFiltrarMateriales(suministro).subscribe(listaDatos=>{
         this.materialesLista=listaDatos;
-        console.log(this.materialesLista)
     })
   }
 

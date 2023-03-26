@@ -50,14 +50,12 @@ export class MaterialComponent implements OnInit {
   private listarMateriales(){
     this.materialesService.consultarMateriales().subscribe(datosRespuesta => {
       this.listaMateriales=datosRespuesta;
-      console.log(datosRespuesta)
     })
   }
 
   obtenerUnidades(){
     this.materialesService.consultarUnidades().subscribe(listaUnidades=>{
         this.listaUnidades=listaUnidades;
-        console.log(this.listaUnidades);
     })
   }
 
@@ -77,12 +75,10 @@ export class MaterialComponent implements OnInit {
 
    }
    onSubmit() {
-    this.materialesService.actualizarCrearMaterial(this.editMaterialForm.value).subscribe((numero)=> {
+    this.materialesService.actualizarCrearMaterial(this.editMaterialForm.value).subscribe(()=> {
       this.listarMateriales();
-      console.log(numero)
     });
     this.modalService.dismissAll();
-    console.log("res:", this.editMaterialForm.getRawValue());
    }
 
    openModalCreate(targetModal) {
@@ -101,11 +97,9 @@ export class MaterialComponent implements OnInit {
    }
 
    onCreateSubmit() {
-    this.materialesService.actualizarCrearMaterial(this.createMaterialForm.value).subscribe((numero)=> {
+    this.materialesService.actualizarCrearMaterial(this.createMaterialForm.value).subscribe(()=> {
       this.listarMateriales();
-      console.log(numero)
     });
     this.modalService.dismissAll();
-    console.log("res:", this.createMaterialForm.getRawValue());
    }
 }

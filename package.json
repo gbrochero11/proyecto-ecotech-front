@@ -6,7 +6,8 @@
     "start": "node server.js",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "start:dev": "ng serve"
   },
   "private": true,
   "dependencies": {
@@ -31,8 +32,10 @@
     "moment": "^2.29.4",
     "ngx-bootstrap": "^7.1.2",
     "ngx-cookie-service": "^11.0.2",
+    "ngx-mask": "^8.1.2",
     "ngx-toastr": "^13.2.1",
     "rxjs": "~6.6.7",
+    "sweetalert2": "^11.7.3",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"
   },

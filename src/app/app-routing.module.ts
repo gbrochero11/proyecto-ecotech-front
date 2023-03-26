@@ -10,7 +10,7 @@ import { LoginComponent } from './feature/login/components/login.component';
 
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent, canActivate: [SecurityGuard]  },
+  { path: '', component: LoginComponent },
   { path: 'registro-conductor', component: RegistroconductorComponent, canActivate: [SecurityGuard]  },
   { path: 'registro-usuario', component: RegistrouUsuariosComponent, canActivate: [SecurityGuard]  },
   { path: 'home', component: HomeComponent, canActivate: [SecurityGuard]  },
@@ -19,8 +19,8 @@ const routes: Routes = [
   { path: 'producto', loadChildren: () => import('@producto/producto.module').then(mod => mod.ProductoModule) },
   { path: 'bodyhoreca', loadChildren: () => import('src/app/horeca.module').then(mod => mod.HorecaModule) },
   { path: 'bodyempresa', loadChildren: () => import('src/app/empresas.module').then(mod => mod.EmpresasModule) },
-  {path: '',  redirectTo: '/login', pathMatch: 'full'},
-  {path: '**',  redirectTo: '/login', pathMatch: 'full'}
+  { path: 'auth', loadChildren: () => import('@auth/auth.module').then(mod => mod.AuthModule) },
+  {path: '**',  redirectTo: '', pathMatch: 'full'}
 ];
 
 @NgModule({
