@@ -27,7 +27,6 @@ export class CiudadesComponent implements OnInit {
   private listarCiudades(){
     this.ciudadesService.consultarAllCiudades().subscribe(datosRespuesta => {
       this.listaCiudades=datosRespuesta;
-      console.log(datosRespuesta)
     })
   }
 

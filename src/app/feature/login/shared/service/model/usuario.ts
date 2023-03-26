@@ -1,7 +1,7 @@
 export class Usuario {
     id: number;
     documento:number;
-    tipousuario:string;
+    tipousuario:any;
     nombre:string;
     razon_social:string;
     codigo_rut:number;
@@ -11,11 +11,12 @@ export class Usuario {
     correo_electronico:string;
     usuario_app:string;
     password_app:string;
+    token:string
     
 
     constructor(id?: number,
       documento?:number,
-      tipousuario?:string,
+      tipousuario?:any,
       nombre?:string,
       razon_social?:string,
       codigo_rut?:number,
@@ -25,6 +26,7 @@ export class Usuario {
       correo_electronico?:string,
       usuario_app?:string,
       password_app?:string,
+      token?:string
       )
       {
         this.id=id;
@@ -39,5 +41,6 @@ export class Usuario {
         this.correo_electronico=correo_electronico;
         this.usuario_app=usuario_app;
         this.password_app=password_app;
+        this.token=token;
       }
 }

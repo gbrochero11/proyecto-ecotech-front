@@ -15,7 +15,6 @@ export class OferrsService {
   }
 
   public guardarNovedad(oferrs: Oferrs) {
-    console.log(JSON.stringify(oferrs))
     return this.http.doPost<Oferrs, boolean>(`${environment.apiURL}/api/orderservice/update-order`, oferrs,
                                                 this.http.optsName('asociar servicio a empresa'));
   }

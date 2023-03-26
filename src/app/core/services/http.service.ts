@@ -51,7 +51,6 @@ export class HttpService {
   }
 
   public doPost<T, R>(serviceUrl: string, body: T, opts?: Options): Observable<R> {
-    console.log(serviceUrl)
     const ropts = this.createOptions(opts);
 
     return this.http.post<R>(serviceUrl, body, ropts);

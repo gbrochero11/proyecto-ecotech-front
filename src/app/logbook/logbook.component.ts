@@ -18,8 +18,7 @@ export class LogbookComponent implements OnInit {
 
   constructor(protected logBookService: LogbookService, protected loginService: LoginService) { }
   ngOnInit(): void {
-    const datos=JSON.parse(this.loginService.obtenerDatos());
-    console.log('obtuvo el id de usuario', datos.id)
+    const datos=this.loginService.obtenerDatos();
     this.listaBitacora = this.logBookService.consultar(datos.id);
   }
 

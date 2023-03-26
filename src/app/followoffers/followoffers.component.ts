@@ -38,17 +38,15 @@ export class FollowoffersComponent   implements OnInit{
   }
 
   private listarOffersAccept(){
-    const datos=JSON.parse(this.loginService.obtenerDatos());
-    this.followService.consultar(datos.data.documento).subscribe(listaRequests=>{
+    const datos=this.loginService.obtenerDatos();
+    this.followService.consultar(datos.documento).subscribe(listaRequests=>{
       this.data = listaRequests['data'];
-      console.log(this.data);
     })
   }
 
   public dataLogBook(id: number){
     this.logBookService.consultar(id).subscribe(bitacora=>{
       this.listaBitacora = bitacora['data'];
-      console.log(this.listaBitacora);
     });
   }
 

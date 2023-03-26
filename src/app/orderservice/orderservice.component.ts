@@ -21,8 +21,7 @@ export class OrderserviceComponent implements OnInit {
   }
 
   crearSolicitud() {
-    this.orderServices.guardar(this.solicitudForm.value).subscribe(usuarioServicio=> {
-      console.log("Response Data: ", usuarioServicio)
+    this.orderServices.guardar(this.solicitudForm.value).subscribe(()=> {
       this.solicitudForm.patchValue({
         documento_usuario: [''],
         direccion: [''],
@@ -36,9 +35,9 @@ export class OrderserviceComponent implements OnInit {
   }
 
   private construirFormularioSolicitud() {
-    const datos=JSON.parse(this.loginService.obtenerDatos());
+    const datos=this.loginService.obtenerDatos();
     this.solicitudForm = new FormGroup({
-      documento_usuario: new FormControl(datos.data.documento),
+      documento_usuario: new FormControl(datos.documento),
       direccion: new FormControl('', [Validators.required]),
       toneladas: new FormControl('', [Validators.required]),
       fecha_solicitud: new FormControl('', [Validators.required]),

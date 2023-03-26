@@ -21,6 +21,9 @@ import { HorecaModule } from './horeca.module';
 import { LoginComponent } from './feature/login/components/login.component';
 import { EmpresasModule } from './empresas.module';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { AuthModule } from './modules/auth/auth.module';
+
+
 
 @NgModule({
   declarations: [
@@ -47,7 +50,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     AngularMaterialModule,
     HorecaModule,
     EmpresasModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    AuthModule,
     ],
     exports: [
       BrowserAnimationsModule

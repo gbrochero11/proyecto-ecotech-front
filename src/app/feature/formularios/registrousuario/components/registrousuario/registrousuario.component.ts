@@ -18,8 +18,7 @@ export class RegistrouUsuariosComponent implements OnInit {
   }
 
   crear() {
-    this.usuariosService.guardar(this.registroUsuariosForm.value).subscribe((numero)=> {
-      console.log(numero)
+    this.usuariosService.guardar(this.registroUsuariosForm.value).subscribe(()=> {
     });
   }
 

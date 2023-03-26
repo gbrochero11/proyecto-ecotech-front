@@ -33,19 +33,16 @@ export class RequestComponent implements OnInit{
   }
 
   private listarRequest(){
-    const datos=JSON.parse(this.loginService.obtenerDatos());
-    console.log('obtuvo el id de usuario', datos.data.documento)
+    const datos=this.loginService.obtenerDatos();
 
-    this.requestService.consultar(datos.data.documento).subscribe(listaRequests=>{
+    this.requestService.consultar(datos.documento).subscribe(listaRequests=>{
       this.data = listaRequests['data'];
-      console.log(this.data);
     })
   }
 
   public dataLogBook(id: number){
     this.logBookService.consultar(id).subscribe(bitacora=>{
       this.listaBitacora = bitacora['data'];
-      console.log(this.listaBitacora);
     });
     this.showChildModal()
   }

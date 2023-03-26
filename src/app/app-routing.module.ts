@@ -19,6 +19,7 @@ const routes: Routes = [
   { path: 'producto', loadChildren: () => import('@producto/producto.module').then(mod => mod.ProductoModule) },
   { path: 'bodyhoreca', loadChildren: () => import('src/app/horeca.module').then(mod => mod.HorecaModule) },
   { path: 'bodyempresa', loadChildren: () => import('src/app/empresas.module').then(mod => mod.EmpresasModule) },
+  { path: 'auth', loadChildren: () => import('@auth/auth.module').then(mod => mod.AuthModule) },
   {path: '',  redirectTo: '/login', pathMatch: 'full'},
   {path: '**',  redirectTo: '/login', pathMatch: 'full'}
 ];
