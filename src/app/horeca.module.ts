@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { HorecaComponent } from './horeca.component';
 import { OrderserviceComponent } from './orderservice/orderservice.component';
 import { LogbookComponent } from './logbook/logbook.component';
@@ -14,6 +14,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { FilerthorecaPipe } from './filerthoreca.pipe';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { NgxMaskModule } from 'ngx-mask';
+
+
 
 @NgModule({
   declarations: [
@@ -34,8 +38,12 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     MatTableModule,
     MatInputModule,
     MatButtonModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    MatDatepickerModule,
+    NgxMaskModule,
   ],
-  providers: []
+  providers: [],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+
 })
 export class HorecaModule {}

@@ -7,41 +7,91 @@
   <form [formGroup]="solicitudForm" (ngSubmit)="crearRecurso()">
     <div class="row">
       <div class="col-sm-12">
-        <input validar type="text" id="documento" name="documento" placeholder="Documento recurso" class="form-control"
-          formControlName="documento">
+        <mat-form-field>
+          <mat-label>Numero de documento</mat-label>
+          <input
+            type="text"
+            matInput
+            placeholder="Numero de documento"
+            formControlName="documento"
+          />
+          <mat-error *ngIf="solicitudForm.get('documento').hasError('required')">
+            El documento es <strong>requerido</strong>
+          </mat-error>
+        </mat-form-field>
       </div>
     </div>
     <br>
     <div class="row">
       <div class="col-sm-12">
-        <input validar type="text" id="nombres" name="nombres" placeholder="Nombres recurso" class="form-control"
-          formControlName="nombres">
+        <mat-form-field>
+          <mat-label>Nombres</mat-label>
+          <input
+            type="text"
+            matInput
+            placeholder="Nombres"
+            formControlName="nombres"
+          />
+          <mat-error *ngIf="solicitudForm.get('nombres').hasError('required')">
+            Los Nombres son <strong>requeridos</strong>
+          </mat-error>
+        </mat-form-field>
       </div>
     </div>
     <br>
     <div class="row">
       <div class="col-sm-12">
-        <input validar type="text" id="apellidos" name="apellidos" placeholder="Apellidos" class="form-control"
-          formControlName="apellidos">
+        <mat-form-field>
+          <mat-label>Apellidos</mat-label>
+          <input
+            type="text"
+            matInput
+            placeholder="Apellidos"
+            formControlName="apellidos"
+          />
+          <mat-error *ngIf="solicitudForm.get('apellidos').hasError('required')">
+            Los Apellidos son <strong>requeridos</strong>
+          </mat-error>
+        </mat-form-field>
       </div>
     </div>
     <br>
     <div class="row">
       <div class="col-sm-12">
-        <input validar type="text" id="usuarioapp" name="usuarioapp" placeholder="Usuario app" class="form-control"
-          formControlName="usuarioapp">
+        <mat-form-field>
+          <mat-label>Usuario App</mat-label>
+          <input
+            type="text"
+            matInput
+            placeholder="Usuario App"
+            formControlName="usuarioapp"
+          />
+          <mat-error *ngIf="solicitudForm.get('usuarioapp').hasError('required')">
+            El Usuario App es <strong>requeridos</strong>
+          </mat-error>
+        </mat-form-field>
       </div>
     </div>
     <br>
     <div class="row">
       <div class="col-sm-12">
-        <input validar type="password" id="contrasenaapp" name="contrasenaapp" placeholder="Contraseña app" class="form-control"
-          formControlName="contrasenaapp">
+        <mat-form-field>
+          <mat-label>Contraseña app</mat-label>
+          <input
+            type="password"
+            matInput
+            placeholder="Contraseña app"
+            formControlName="contrasenaapp"
+          />
+          <mat-error *ngIf="solicitudForm.get('contrasenaapp').hasError('required')">
+            El Usuario App es <strong>requeridos</strong>
+          </mat-error>
+        </mat-form-field>
       </div>
     </div>
     <br><br>
     <div style="text-align: center;">
-      <button type="submit" class="btn color-basic-secondary">Crear Recurso</button>
+      <button type="submit" class="btn color-basic-secondary" [disabled]="solicitudForm.invalid">Crear Recurso</button>
     </div>
   </form>
 </div>

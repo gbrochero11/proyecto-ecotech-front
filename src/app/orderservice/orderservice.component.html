@@ -7,42 +7,91 @@
   <form [formGroup]="solicitudForm" (ngSubmit)="crearSolicitud()">
     <div class="row">
       <div class="col-sm-12">
-        <input validar type="text" id="direccion" name="direccion" placeholder="Dirección" class="form-control"
-          formControlName="direccion">
+        <mat-form-field>
+          <mat-label>Dirección</mat-label>
+          <input
+            type="text"
+            matInput
+            placeholder="Direccion"
+            formControlName="direccion"
+          />
+          <mat-error *ngIf="solicitudForm.get('direccion').hasError('required')">
+            Dirección <strong>requerido</strong>
+          </mat-error>
+        </mat-form-field>
+
       </div>
     </div>
     <br>
     <div class="row">
       <div class="col-sm-12">
-        <input validar type="text" id="toneladas" name="peso" placeholder="Peso - Toneladas" class="form-control"
-          formControlName="toneladas">
+        <mat-form-field>
+          <mat-label>Peso - Toneladas</mat-label>
+          <input
+            type="number"
+            matInput
+            placeholder="Peso - Toneladas"
+            formControlName="toneladas"
+          />
+          <mat-error *ngIf="solicitudForm.get('toneladas').hasError('required')">
+            Las toneladas o el peso son <strong>requeridos</strong>
+          </mat-error>
+        </mat-form-field>
       </div>
     </div>
     <br>
     <div class="row">
       <div class="form-group col-sm-12">
-        <label for="inputFechaServicio">Fecha Servicio</label>
-        <input type="date" placeholder="Fecha Servicio" class="form-control" bsDatepicker formControlName="fecha_solicitud">
+        <mat-form-field>
+          <input matInput [matDatepicker]="picker" formControlName="fecha_solicitud" placeholder="Fecha de servicio">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="solicitudForm.get('fecha_solicitud').hasError('required')">
+            La Fecha de servicio es <strong>requerida</strong>
+          </mat-error>
+        </mat-form-field>
       </div>
     </div>
     
     <br>
     <div class="row">
       <div class="col-sm-12">
-        <input validar type="text" id="ciudad_origen" name="ciudad" placeholder="Ciudad" class="form-control"
-          formControlName="ciudad_origen">
+        <mat-form-field>
+          <mat-label>Ciudad</mat-label>
+          <input
+            type="text"
+            matInput
+            placeholder="Ciudad"
+            formControlName="ciudad_origen"
+          />
+          <mat-error *ngIf="solicitudForm.get('ciudad_origen').hasError('required')">
+            La Ciudad es <strong>requeridos</strong>
+          </mat-error>
+        </mat-form-field>
       </div>
     </div>
     <br>
     <div class="row">
       <div class="col-sm-12">
-        <input validar type="text" id="telefono" name="telefono" placeholder="Telefono" class="form-control"
-          formControlName="telefono">
+        <mat-form-field>
+          <mat-label>Telefono</mat-label>
+          <input
+            type="text"
+            matInput
+            placeholder="Telefono"
+            formControlName="telefono"
+            mask="(000) 000-0000"
+          />
+          <mat-error *ngIf="solicitudForm.get('ciudad_origen').hasError('required')">
+            El Telefono es <strong>requeridos</strong>
+          </mat-error>
+        </mat-form-field>
       </div>
     </div>
     <br><br>
     <div style="text-align: center;">
-      <button type="submit" class="btn color-basic-secondary">Crear Solicitud</button>
+      <button type="submit" class="btn color-basic-secondary" [disabled]="solicitudForm.invalid">Crear Solicitud</button>
     </div>
   </form>
 </div>
