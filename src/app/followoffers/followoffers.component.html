@@ -29,7 +29,7 @@
                   <td>{{dataList.direccion}}</td>
                   <td>{{dataList.fecha_solicitud}}</td>
                   <td>
-                    <button mat-raised-button focusable="false" data-bs-toggle="modal" data-bs-target="#myModal"
+                    <button mat-raised-button focusable="false"
                       (click)="dataLogBook(dataList.id)">
                       <img class="img-fluid" src="./assets/images/iconos-visualizar.png" alt="Icon" width="20px">
                     </button>
@@ -46,13 +46,17 @@
     </div>
   
     <!-- The Modal -->
-    <div class="modal" id="myModal">
-      <div class="modal-dialog">
+    <div bsModal #childModal="bs-modal" class="modal fade" tabindex="-1" role="dialog"
+    aria-labelledby="dialog-child-name" >
+    <div class="modal-dialog modal-lg" data-backdrop="false">
         <div class="modal-content">
   
           <!-- Modal Header -->
           <div class="modal-header">
             <h4 class="modal-title">BITACORA</h4>
+            <button type="button" class="close pull-right btn-close" aria-label="Close" (click)="hideChildModal()">
+              <span aria-hidden="true" class="visually-hidden">&times;</span>
+            </button>
           </div>
   
           <!-- Modal body -->

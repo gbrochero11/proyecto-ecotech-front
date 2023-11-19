@@ -48,6 +48,9 @@ export class RequestComponent implements OnInit{
   }
 
   showChildModal(): void {
+    this.childModal.config = {
+      backdrop: false
+    }
     this.childModal?.show();
   }
  

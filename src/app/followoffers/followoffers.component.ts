@@ -1,9 +1,10 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, ViewChild} from '@angular/core';
 import { LoginService } from '../feature/login/shared/service/service/login.service';
 import { LogbookService } from '../logbook/service/logbook.service';
 import { LogBook } from '../logbook/service/model/LogBook';
 import { FollowoffersService } from './service/followoffers.service';
 import { FollowOffers } from './service/model/followoffers';
+import { ModalDirective } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-followoffers',
@@ -19,6 +20,8 @@ export class FollowoffersComponent   implements OnInit{
   selected = "Solicitud"
   data: FollowOffers[] =[];
   listaBitacora: LogBook[] =[];
+  @ViewChild('childModal', { static: false }) childModal?: ModalDirective;
+
   
   update(e){
     this.selected = e.target.value
@@ -47,7 +50,19 @@ export class FollowoffersComponent   implements OnInit{
   public dataLogBook(id: number){
     this.logBookService.consultar(id).subscribe(bitacora=>{
       this.listaBitacora = bitacora['data'];
+      this.showChildModal()
     });
+  }
+
+  showChildModal(): void {
+    this.childModal.config = {
+      backdrop: false
+    }
+    this.childModal?.show();
+  }
+ 
+  hideChildModal(): void {
+    this.childModal?.hide();
   }
 
 }
